@@ -5,11 +5,12 @@ import sys
 sys.stderr.write('stderr: repeater.py: starting\n')
 sys.stderr.flush()
 
-print('XXX')
-sys.stdout.flush()
-
 sys.stdout.write('YYY\n')
 sys.stdout.flush()
+
+# sys.stdout.write('YYY')
+# sys.stdout.flush()
+print('XXX', flush=True)
 
 while True:
     next_line = sys.stdin.readline()
