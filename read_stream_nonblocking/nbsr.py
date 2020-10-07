@@ -15,7 +15,7 @@ class NonBlockingStreamReader:
 
         def _populateQueue(stream, queue):
             '''
-            Collect lines from 'stream' and put them in 'quque'.
+            Collect lines from 'stream' and put them in 'queue'.
             '''
 
             while True:
@@ -23,7 +23,8 @@ class NonBlockingStreamReader:
                 if line:
                     queue.put(line)
                 else:
-                    raise UnexpectedEndOfStream
+                    # raise UnexpectedEndOfStream
+                    pass
 
         self._t = Thread(target=_populateQueue,
                          args=(self._s, self._q))
@@ -38,5 +39,5 @@ class NonBlockingStreamReader:
             return None
 
 
-class UnexpectedEndOfStream(Exception):
-    pass
+# class UnexpectedEndOfStream(Exception):
+#     pass
